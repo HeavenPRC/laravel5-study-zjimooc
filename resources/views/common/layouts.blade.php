@@ -30,10 +30,14 @@
          <!-- 左侧菜单域 -->
         <div class="col-md-3">
             <div class="list-group">
-                <a href="#" class="list-group-item active">
+                <a href="{{ url('student/index') }}" class="list-group-item
+                {{ Request::getPathInfo() == '/student/index'? 'active' : '' }}
+                ">
                     <i class="fa fa-fw fa-users"></i> 学生列表
                 </a>
-                <a href="#" class="list-group-item">
+                <a href="{{ url('student/insert') }}" class="list-group-item
+                 {{ Request::getPathInfo() == '/student/insert'? 'active' : '' }}
+                ">
                     <i class="fa fa-fw fa-plus"></i> 新增学生
                 </a>
             </div>
@@ -53,7 +57,7 @@
 <!-- 尾部 -->
 @section('footer')
 	<footer class="container-fluid">
-	    <i class="fa fa-fw fa-copyright"></i> 2017 imooc
+	    <i class="fa fa-fw fa-copyright"></i> 2017 zj-laravel
 	</footer>
 @show
 <!-- jQuery文件 -->

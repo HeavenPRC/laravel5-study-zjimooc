@@ -30,4 +30,11 @@ Route::group(['middleware' => ['web']], function () {
     //
 });
 
-Route::get('student/index',['uses' => 'StudentController@index']);
+Route::group(['middleware' => ['web']], function(){
+
+	Route::get('student/index',['uses' => 'StudentController@index']);
+	//新增学生页
+	Route::any('student/insert',['uses' => 'StudentController@create']);
+	//保存添加的学生
+	Route::any('student/save',['uses' => 'StudentController@save']);
+});

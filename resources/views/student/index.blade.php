@@ -12,62 +12,30 @@
                         <th>姓名</th>
                         <th>性别</th>
                         <th>年龄</th>
+                        <th>生成时间</th>
                         <th>操作</th>
                     </tr>
+                @foreach($students as $student)
                     <tr>
-                        <td>1001</td>
-                        <td>欧阳锋</td>
-                        <td>男</td>
-                        <td>18</td>
+                        <td>{{$student->id}}</td>
+                        <td>{{$student->name}}</td>
+                        <td>{{$student->sex($student->sex)}}</td>
+                        <td>{{$student->age}}</td>
+                        <td>{{date('Y-m-d H:i:s',$student->created_at)}}</td>
                         <td>
                             <a href="">详情</a>
                             <a href="">修改</a>
                             <a href="">删除</a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>1001</td>
-                        <td>欧阳锋</td>
-                        <td>男</td>
-                        <td>18</td>
-                        <td>
-                            <a href="">详情</a>
-                            <a href="">修改</a>
-                            <a href="">删除</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1001</td>
-                        <td>欧阳锋</td>
-                        <td>男</td>
-                        <td>18</td>
-                        <td>
-                            <a href="">详情</a>
-                            <a href="">修改</a>
-                            <a href="">删除</a>
-                        </td>
-                    </tr>
+                @endforeach
                 </table>
 
             </div>
 
             <!-- 分页 -->
-            <nav aria-label="..." class="pull-right">
-                <ul class="pagination pagination-sm">
-                    <li>
-                    	<a href="#" aria-label="Previous">
-                    		<span aria-hidden="true">&laquo;</span></a>
-                    	</li>
-                    <li class="active"><a href="#">1 </a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li>
-                    	<a href="#" aria-label="Next">
-                    		<span aria-hidden="true">&raquo;</span>
-                    	</a>
-                    </li>
-                </ul>
-            </nav>
+            <div class="pull-right">
+               {{ $students->render() }}
+            </div>
+
 @stop
