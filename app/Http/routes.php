@@ -37,4 +37,6 @@ Route::group(['middleware' => ['web']], function(){
 	Route::any('student/insert',['uses' => 'StudentController@create']);
 	//保存添加的学生
 	Route::any('student/save',['uses' => 'StudentController@save']);
+	Route::any('student/update/{id}',['uses' => 'StudentController@update']);
+	Route::any('student/delete/{id}',['uses' => 'StudentController@delete']);
 });
